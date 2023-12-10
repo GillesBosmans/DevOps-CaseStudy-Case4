@@ -14,8 +14,4 @@
     <ProjectReference Include="..\models\models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="repositories\" />
-  </ItemGroup>
-
 </Project>
