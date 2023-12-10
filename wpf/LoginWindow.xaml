@@ -1,0 +1,203 @@
+﻿<Window x:Class="wpf.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf"
+        mc:Ignorable="d"
+        Height="450" Width="800"
+        Title="LoginWindow" WindowStyle="None"
+        ResizeMode="CanResize" WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown"
+        Background="{StaticResource background1}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="5"/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btnNormal"
+                Content="▣"
+                BorderThickness="0"
+                Foreground="{StaticResource fontWhite}"
+                FontSize="11"
+                Cursor="Hand"
+                Grid.Column="1" Click="btnNormal_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="{StaticResource btnGreen}"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource btnGreenHover}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="20" Height="20" 
+                            CornerRadius="9" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button x:Name="btnMinimize"
+                Content="-"
+                BorderThickness="0"
+                Foreground="{StaticResource fontWhite}"
+                FontSize="11"
+                Cursor="Hand"
+                Grid.Column="2" Click="btnMinimize_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="{StaticResource btnOrange}"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource btnOrangeHover}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="20" Height="20" 
+                            CornerRadius="9" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button x:Name="btnClose"
+                Content="x"
+                BorderThickness="0"
+                Foreground="{StaticResource fontWhite}"
+                FontSize="16"
+                FontFamily="Montserrat"
+                Cursor="Hand"
+                Grid.Column="3" Click="btnClose_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="{StaticResource btnRed}"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource btnRedHover}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="20" Height="20" 
+                            CornerRadius="9" Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <StackPanel Width="300"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Margin="0,40,0,0">
+            <Image Source="/Images/Logo.png"
+                   Width="90" Height="90"/>
+            <TextBlock Text="GB - AUTOPARTS"
+                       Background="Transparent"
+                       Foreground="{StaticResource fontBlack}"
+                       FontWeight="Bold"
+                       FontSize="16"
+                       FontFamily="Montserrat"
+                       HorizontalAlignment="Center"/>
+
+
+            <TextBlock Text="E-mail"
+                       Foreground="{StaticResource fontBlack}"
+                       FontWeight="Bold"
+                       FontSize="16"
+                       FontFamily="Montserrat"
+                       Margin="0,5,0,0"
+                       HorizontalAlignment="Left"/>
+            <TextBox x:Name="txtEmail"
+                     Foreground="{StaticResource fontBlack}"
+                     CaretBrush="{StaticResource btnGreen}"
+                     BorderBrush="{StaticResource fontBlack}"
+                     FontWeight="Medium"
+                     FontSize="16"
+                     FontFamily="Montserrat"
+                     Height="28"
+                     BorderThickness="0,0,0,1"
+                     Margin="0,5,0,0"
+                     Padding="30,0,0,0"
+                     VerticalAlignment="Center">
+                <TextBox.Background>
+                    <ImageBrush ImageSource="/Images/Icons/user-solid.png"
+                                Stretch="Uniform"
+                                AlignmentX="Left"/>
+                </TextBox.Background>
+            </TextBox>
+
+            <TextBlock Text="Wachtwoord"
+                       Foreground="{StaticResource fontBlack}"
+                       FontWeight="Bold"
+                       FontSize="16"
+                       FontFamily="Montserrat"
+                       Margin="0,5,0,0"
+                       HorizontalAlignment="Left"/>
+            <PasswordBox x:Name="txtPassword"
+                     Foreground="{StaticResource fontBlack}"
+                     CaretBrush="{StaticResource btnGreen}"
+                     BorderBrush="{StaticResource fontBlack}"
+                     FontWeight="Medium"
+                     FontSize="16"
+                     FontFamily="Montserrat"
+                     Height="28"
+                     BorderThickness="0,0,0,1"
+                     Margin="0,5,0,0"
+                     Padding="30,0,0,0"
+                     VerticalAlignment="Center">
+                <PasswordBox.Background>
+                    <ImageBrush ImageSource="\Images\Icons\key-solid.png"
+                                Stretch="Uniform"
+                                AlignmentX="Left"/>
+                </PasswordBox.Background>
+            </PasswordBox>
+            <Button x:Name="btnLogIn"
+                Content="Log In"
+                BorderThickness="0"
+                Foreground="{StaticResource fontWhite}"
+                FontSize="16"
+                Cursor="Hand"
+                Margin="0,30,0,0" Click="btnLogIn_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="{StaticResource btnGreen}"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource btnGreenHover}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="140" Height="30" 
+                            CornerRadius="6" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Label x:Name="lblnotifications" Foreground="{StaticResource Notifications}" Margin="0,10,0,0" HorizontalAlignment="Center"></Label>
+        </StackPanel>
+    </Grid>
+</Window>
