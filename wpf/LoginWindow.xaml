@@ -177,7 +177,8 @@
                 Foreground="{StaticResource fontWhite}"
                 FontSize="16"
                 Cursor="Hand"
-                Margin="0,30,0,0" Click="btnLogIn_Click">
+                Margin="0,30,0,0" 
+                Click="btnLogIn_Click">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Background" Value="{StaticResource btnGreen}"/>

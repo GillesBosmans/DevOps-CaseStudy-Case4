@@ -121,8 +121,8 @@
                   Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Row="1" Grid.Column="2" Margin="0,0,0,0" Width="150" />
         <TextBox x:Name="txtAmount" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Aantal"
                   Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Row="1" Grid.Column="3" Margin="0,5,0,0" Width="150" />
-        <ComboBox x:Name="cmbCars" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Auto" Width="150" DisplayMemberPath="DisplayText" SelectedValuePath="Id" HorizontalAlignment="Center" SelectionChanged="cmbCars_SelectionChanged" />
-        <ComboBox x:Name="cmbCategorie" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="Categorie" Width="150" DisplayMemberPath="Naam" SelectedValuePath="Id" SelectionChanged="cmbCategorie_SelectionChanged"/>
+        <ComboBox x:Name="cmbCars" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Auto" Width="150" DisplayMemberPath="DisplayText" SelectedValuePath="Id" HorizontalAlignment="Center" />
+        <ComboBox x:Name="cmbCategorie" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="Categorie" Width="150" DisplayMemberPath="Naam" SelectedValuePath="Id"/>
         <TextBox x:Name="txtPhoto" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Foto"
                   Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Row="2" Grid.Column="2" Margin="0,0,0,0" Width="150" />
         <TextBox x:Name="txtDescription" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Omschrijving"
