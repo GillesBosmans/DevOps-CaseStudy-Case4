@@ -58,7 +58,7 @@
                 Foreground="{StaticResource fontWhite}"
                 FontSize="11"
                 Cursor="Hand"
-                Grid.Column="3" Click="btnMinimize_Click" HorizontalAlignment="Left" Width="25">
+                Grid.Column="3" Click="btnMinimize_Click">
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="Background" Value="{StaticResource btnOrange}"/>
@@ -109,8 +109,8 @@
 
         <TabControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
                     Style="{StaticResource MaterialDesignNavigatilRailTabControl}"
-                    materialDesign:NavigationRailAssist.ShowSelectionBackground="True"
-                    SelectionChanged="tabControl_SelectionChanged"
+                    materialDesign:NavigationRailAssist.ShowSelectionBackground="True" 
+                    SelectionChanged="TabControl_SelectionChanged"
                     x:Name="tabControl" Background="{StaticResource background1}">
 
             <TabItem x:Name="tabMain" Width="150">
