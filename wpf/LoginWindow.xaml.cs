@@ -1,17 +1,8 @@
 ﻿using dal;
+using dal.api;
 using models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Xml.Linq;
 
 namespace wpf
 {
@@ -21,17 +12,17 @@ namespace wpf
 	public partial class LoginWindow : Window
 	{
 		private IKlantRepository _klantRepository = new KlantRepository();
+		ApiLoginValidatie apiLoginValidatie = new ApiLoginValidatie();
 
 		public LoginWindow()
 		{
 			InitializeComponent();
 		}
 
-		private void btnLogIn_Click(object sender, RoutedEventArgs e)
+		private async void btnLogIn_Click(object sender, RoutedEventArgs e)
 		{
 			string email = txtEmail.Text.ToLower();
 			string password = txtPassword.Password;
-
 
 			if (string.IsNullOrEmpty(email))
 			{
@@ -43,31 +34,40 @@ namespace wpf
 				lblnotifications.Content = "Paswoord moet ingevuld zijn!";
 				return;
 			}
+			
+			LoginValidatie loginValidatie = await apiLoginValidatie.AuthenticateKlantAsync(email, password);
 
-			if (_klantRepository.GetKlantByEmail(email) is Klant klant)
+			if (loginValidatie != null)
 			{
-				if (klant.Paswoord.Trim() != password.Trim())
+				if (_klantRepository.GetKlantByEmail(loginValidatie.Name) is Klant klant)
 				{
-					lblnotifications.Content = "Paswoord is fout!";
-					return;
-				}
+					if (klant.Paswoord.Trim() != password.Trim())
+					{
+						lblnotifications.Content = "Paswoord is fout!";
+						return;
+					}
 
-				if (klant.Status)
-				{
-					AdminWindow adminWindow = new AdminWindow(klant.Id);
-					adminWindow.Show();
-					this.Close();
+					if (klant.Status)
+					{
+						AdminWindow adminWindow = new AdminWindow(klant.Id);
+						adminWindow.Show();
+						this.Close();
+					}
+					else
+					{
+						MainWindow mainWindow = new MainWindow(klant.Id);
+						mainWindow.Show();
+						this.Close();
+					}
 				}
 				else
 				{
-					MainWindow mainWindow = new MainWindow(klant.Id);
-					mainWindow.Show();
-					this.Close();
+					lblnotifications.Content = $"{loginValidatie.Message}";
 				}
 			}
 			else
 			{
-				lblnotifications.Content = "Email is niet geldig!";
+				lblnotifications.Content = "Gegevens om in te loggen zijn niet geldig!";
 			}
 		}
 
