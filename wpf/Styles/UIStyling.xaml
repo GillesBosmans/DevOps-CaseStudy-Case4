@@ -1,0 +1,28 @@
+﻿<!--https://wpf-tutorial.com/wpf-application/resources/-->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <!--Color palette-->
+    <!--Background-->
+    <SolidColorBrush  x:Key="background1">#E1FFE3</SolidColorBrush>
+    <SolidColorBrush x:Key="background2">#DFF9E4</SolidColorBrush>
+    <!--Button-->
+    <SolidColorBrush x:Key="btnGreen">#32B550</SolidColorBrush>
+    <SolidColorBrush x:Key="btnGreenHover">#22C55E</SolidColorBrush>
+    <SolidColorBrush x:Key="btnRed">#DC3545</SolidColorBrush>
+    <SolidColorBrush x:Key="btnRedHover">#f52819</SolidColorBrush>
+    <SolidColorBrush x:Key="btnOrange">#FFA500</SolidColorBrush>
+    <SolidColorBrush x:Key="btnOrangeHover">#DD9105</SolidColorBrush>
+    <!--Font Color-->
+    <SolidColorBrush x:Key="fontBlack">#000000</SolidColorBrush>
+    <SolidColorBrush x:Key="fontWhite">#FFFFFF</SolidColorBrush>
+    <SolidColorBrush x:Key="Notifications">#f52819</SolidColorBrush>
+
+    <!--Font styles-->
+    <!--Font Family-->
+    <FontFamily x:Key="Header1FF">Sans Serif</FontFamily>
+    <!--Font Style-->
+    <FontWeight x:Key="Header1FW">Bold</FontWeight>
+    <!--Font Size-->
+    <sys:Double x:Key="Header1FS">20</sys:Double>
+</ResourceDictionary>

@@ -1,4 +1,4 @@
-﻿<Window x:Class="wpf.MainWindow"
+﻿<Window x:Class="wpf.AdminWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,9 +6,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:wpf"
         mc:Ignorable="d"
-        Title="MainWindow"
         Height="450" Width="800"
-        WindowStyle="None"
+        Title="AdminWindow"  WindowStyle="None"
         ResizeMode="CanResize" WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown"
         Background="{StaticResource background1}">
@@ -108,7 +107,6 @@
             </Button.Template>
         </Button>
 
-
         <TabControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
                     Style="{StaticResource MaterialDesignNavigatilRailTabControl}"
                     materialDesign:NavigationRailAssist.ShowSelectionBackground="True" 
@@ -133,11 +131,11 @@
                 </TabItem.Header>
             </TabItem>
 
-            <TabItem x:Name="tabOrder" Width="150">
+            <TabItem x:Name="tabAuto" Width="150">
                 <TabItem.Header>
                     <StackPanel>
-                        <Image Source="Images/Icons/cart-shopping-solid.png" Height="24" Width="24"/>
-                        <TextBlock Text="Bestelling" HorizontalAlignment="Center" />
+                        <Image Source="Images/Icons/car-solid.png" Height="24" Width="24"/>
+                        <TextBlock Text="Auto" HorizontalAlignment="Center" />
                     </StackPanel>
                 </TabItem.Header>
             </TabItem>
