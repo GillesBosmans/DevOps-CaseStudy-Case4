@@ -102,6 +102,54 @@ namespace dal
                 "
                 );
 
+				dbConnection.Execute(@"
+                    INSERT INTO Klant (naam, voornaam, email, straat, nummer, postcode, gemeente, land, paswoord, status)
+                    VALUES (
+                        'Admin', 
+                        'Admin', 
+                        'admin@gbautoparts.com', 
+                        'Langstraat', 
+                        '13', 
+                        '3910', 
+                        'Neerpelt', 
+                        'BE', 
+                        'Admin', 
+                        1
+                    );
+                ");
+
+				dbConnection.Execute(@"
+                    INSERT INTO Klant (naam, voornaam, email, straat, nummer, postcode, gemeente, land, paswoord, status)
+                    VALUES (
+                        '1', 
+                        'kassa', 
+                        'kassa1@gbautoparts.com', 
+                        'Langstraat', 
+                        '13', 
+                        '3910', 
+                        'Neerpelt', 
+                        'BE', 
+                        'Kassa1', 
+                        0
+                    );
+                ");
+
+				dbConnection.Execute(@"
+                    INSERT INTO Klant (naam, voornaam, email, straat, nummer, postcode, gemeente, land, paswoord, status)
+                    VALUES (
+                        '2', 
+                        'kassa', 
+                        'kassa2@gbautoparts.com', 
+                        'Langstraat', 
+                        '13', 
+                        '3910', 
+                        'Neerpelt', 
+                        'BE', 
+                        'Kassa2', 
+                        0
+                    );
+                ");
+
 				dbConnection.Close();
 			}
 		}
