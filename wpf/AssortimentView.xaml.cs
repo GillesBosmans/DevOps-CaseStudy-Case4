@@ -120,7 +120,7 @@ namespace wpf
 			IEnumerable<BestellingOnderdeel> listBestellingOnderdeel = _bestellingOnderdeelRepository.GetPartsInActiveShoppingCart(bestelling.Id);
 			bool added = false;
 
-			if (listBestellingOnderdeel.Count()! > 0)
+			if (listBestellingOnderdeel.Count() < 1)
 			{
 				InsertBestellingOnderdeel(onderdeel, amount, bestelling);
 				return;

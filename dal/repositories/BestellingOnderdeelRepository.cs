@@ -35,8 +35,6 @@ namespace dal
 					splitOn: "SplitCol"
 				);
 				return bestelling;
-
-				// return GroepeerBestellingen(bestelling);
 			}
 		}
 
@@ -47,7 +45,7 @@ namespace dal
 						   FROM BestellingOnderdeel AS BO
 						   INNER JOIN Onderdeel AS O ON BO.onderdeelId = O.id
 						   WHERE BO.bestellingId = @bestellingid 
-						   AND O.omschrijving  LIKE '%'+@search+'%'";
+						   AND O.omschrijving  LIKE '%' || @search || '%'";
 
 			using (var connection = DBConnectionGBAutoParts())
 			{

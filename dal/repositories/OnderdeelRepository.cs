@@ -26,15 +26,13 @@ namespace dal
 		{
 			string sql = @"SELECT * 
 						   FROM Onderdeel
-						   WHERE id = @partID";
+						   WHERE id = @PartID";
 
-			var parameters = new { @partID = partID };
+			var parameters = new { @PartID = partID };
 
 			using (var connection = DBConnectionGBAutoParts())
 			{
-				var restult = connection.QuerySingleOrDefault<Onderdeel>(sql, parameters);
-				return restult;
-				//return connection.QuerySingleOrDefault<Onderdeel>(sql, parameters);
+				return connection.QuerySingleOrDefault<Onderdeel>(sql, parameters);
 			}
 		}
 		// onderdelen + auto's ophalen
@@ -86,7 +84,7 @@ namespace dal
 			string sql = @"SELECT O.*, '' AS SplitCol, A.*
 						   FROM Onderdeel O 
 						   JOIN Auto A ON O.autoId = A.id
-						   WHERE categorieId = @categorieID";
+						   WHERE categorieId = @CategorieID";
 
 			using (var connection = DBConnectionGBAutoParts())
 			{
@@ -97,7 +95,7 @@ namespace dal
 						onderdeel.Auto = auto;
 						return onderdeel;
 					},
-					new { @categorieID = categorieID },
+					new { @CategorieID = categorieID },
 					splitOn: "SplitCol"
 				);
 			}
@@ -109,7 +107,7 @@ namespace dal
 			string sql = @"SELECT O.*, '' AS SplitCol, A.*
 						   FROM Onderdeel O 
 						   JOIN Auto A ON O.autoId = A.id
-						   WHERE O.omschrijving  LIKE '%'+@search+'%'";
+						   WHERE O.omschrijving  LIKE '%' || @Search || '%'";
 
 			using (var connection = DBConnectionGBAutoParts())
 			{
@@ -120,7 +118,7 @@ namespace dal
 						onderdeel.Auto = auto;
 						return onderdeel;
 					},
-					new { @search = search },
+					new { @Search = search },
 					splitOn: "SplitCol"
 				);
 			}
@@ -132,8 +130,8 @@ namespace dal
 			string sql = @"SELECT O.*, '' AS SplitCol, A.*
 						   FROM Onderdeel O 
 						   JOIN Auto A ON O.autoId = A.id
-						   WHERE categorieId = @categorieID
-								 AND O.omschrijving LIKE '%'+@search+'%'";
+						   WHERE categorieId = @CategorieID
+								 AND O.omschrijving LIKE '%' || @Search || '%'";
 
 			using (var connection = DBConnectionGBAutoParts())
 			{
@@ -144,7 +142,7 @@ namespace dal
 						onderdeel.Auto = auto;
 						return onderdeel;
 					},
-					new { @categorieID = categorieID, @search = search },
+					new { @CategorieID = categorieID, @Search = search },
 					splitOn: "SplitCol"
 				);
 			}
@@ -222,11 +220,11 @@ namespace dal
 		public bool DeletePart(int partID)
 		{
 			string sql = @"DELETE FROM Onderdeel 
-                           WHERE id = @partID";
+                           WHERE id = @PartID";
 
 			var parameters = new
 			{
-				@partID = partID
+				@PartID = partID
 			};
 
 			using (var connection = DBConnectionGBAutoParts())
