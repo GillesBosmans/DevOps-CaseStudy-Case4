@@ -33,5 +33,33 @@ namespace dal
 				return connection.QuerySingleOrDefault<Klant>(sql, parameters);
 			}
 		}
+
+		//public bool InsertKlant(Klant klant)
+		//{
+		//	string sql = @"INSERT INTO Klant (naam, type, foto, omschrijving, prijs, aantal, autoId, categorieId)
+  //                         VALUES (@Naam, @Type, @Foto, @Omschrijving, @Prijs, @Aantal, @AutoID, @CategorieID)";
+
+		//	var parameters = new
+		//	{
+		//		@Naam = Klant.Naam,
+		//		@Type = onderdeel.Type,
+		//		@Foto = onderdeel.Foto,
+		//		@Omschrijving = onderdeel.Omschrijving,
+		//		@Prijs = onderdeel.Prijs,
+		//		@Aantal = onderdeel.Aantal,
+		//		@AutoID = onderdeel.AutoID,
+		//		@CategorieID = onderdeel.CategorieID
+		//	};
+
+		//	using (var connection = DBConnectionGBAutoParts())
+		//	{
+		//		var affectedRows = connection.Execute(sql, parameters);
+		//		if (affectedRows == 1)
+		//		{
+		//			return true;
+		//		}
+		//	}
+		//	return false;
+		//}
 	}
 }
